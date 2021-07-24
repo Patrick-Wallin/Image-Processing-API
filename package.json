@@ -44,7 +44,6 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "imageprocessor": "file:../../npm-local-modules/imageprocessor-1.0.0.tgz",
     "jasmine": "^3.8.0",
     "jasmine-spec-reporter": "^7.0.0",
     "sharp": "^0.28.3",
