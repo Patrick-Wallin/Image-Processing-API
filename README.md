@@ -5,7 +5,6 @@ Image Processing API is an api library for processing the image into different s
 * [General Info](#general-information)
 * [Technologies](#technologies)
 * [Install](#install)
-* [Screenshots](#screenshots)
 * [Instruction of API Request](#instruction-of-api-request)
 * [Purpose of this project](#purpose-of-this-project)
 * [Contact](#contact)
@@ -41,6 +40,16 @@ Start the server based on JavaScript, not TypeScript
 ```
 node dist/index.js
 ```
+To keep the code look clean and nice, run the following command:
+```
+npm run prettier
+```
+To check any variable or analyze any code that may look the problem, run the following command:
+```
+npm run lint
+```
+
+
 ## Instruction of API Request
 ```
 localhost:3000/api/images?

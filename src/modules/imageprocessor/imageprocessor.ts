@@ -67,7 +67,23 @@ const resizeImage = async (
 
   if (overwrite) {
     if ((await resizedFileNameExist).valueOf()) {
+      console.log("Test");
       if (width > 0 && height > 0) {
+        try {
+          await fs.promises.rm(resizedFilename);
+          await sharp(filename)
+            .resize(width, height)
+            .toFile(resizedFilename)
+            .then((info) => {
+              success = RESIZE_IMAGE.ERROR_NONE;
+            })
+            .catch((err) => {
+              success = RESIZE_IMAGE.ERROR_RESIZE_FILENAME_UNABLE_TO_BE_CREATED;
+            });
+        }catch(err) {
+          success = RESIZE_IMAGE.ERROR_RESIZE_FILENAME_UNABLE_TO_BE_REMOVED;
+        }
+        /*
         try {
           fs.unlinkSync(resizedFilename);
           await sharp(filename)
@@ -82,6 +98,7 @@ const resizeImage = async (
         } catch (err) {
           success = RESIZE_IMAGE.ERROR_RESIZE_FILENAME_UNABLE_TO_BE_REMOVED;
         }
+        */
       } else {
         success = RESIZE_IMAGE.ERROR_WIDTH_OR_HEIGHT;
       }

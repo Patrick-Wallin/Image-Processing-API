@@ -1,18 +1,20 @@
 import {
   resizeImage,
   RESIZE_IMAGE,
-} from '../../../modules/imageprocessor/imageprocessor';
+} from '../../../../src/modules/imageprocessor/imageprocessor';
 import fs from 'fs';
-import { doesNotMatch } from 'assert/strict';
+import path from 'path';
+import { doesNotMatch } from 'assert/strict'
 
-const filename_exist =
-  'C:/projects/udacity/projects/Image-Processing-API/src/assets/full/encenadaport.jpg';
-const filename_not_existed =
-  'C:\\projects\\udacity\\projects\\Image-Processing-API\\src\\assets\\full\\noteventhere.jpg';
-const resize_filename_1 =
-  'C:/projects/udacity/projects/Image-Processing-API/src/assets/resize/encenadaport-w200-h200.jpg';
-const resize_filename_2 =
-  'C:\\projects\\udacity\\projects\\Image-Processing-API\\src\\assets\\resize\\noteventhere-w100-h100.jpg';
+const rootDirectory = path.resolve("./");
+const filename_exist = path.join(rootDirectory, "src/assets/full", "encenadaport.jpg");
+  // 'C:/projects/udacity/projects/Image-Processing-API/src/assets/full/encenadaport.jpg';
+const filename_not_existed = path.join(rootDirectory, "src/assets/full", "noteventhere.jpg");
+  //'C:\\projects\\udacity\\projects\\Image-Processing-API\\src\\assets\\full\\noteventhere.jpg';
+const resize_filename_1 = path.join(rootDirectory, "src/assets/resize", "encenadaport-w200-h200.jpg");
+  // 'C:/projects/udacity/projects/Image-Processing-API/src/assets/resize/encenadaport-w200-h200.jpg';
+const resize_filename_2 = path.join(rootDirectory, "src/assets/resize", "noteventhere-w100-h100.jpg");
+  // 'C:\\projects\\udacity\\projects\\Image-Processing-API\\src\\assets\\resize\\noteventhere-w100-h100.jpg';
 
 describe('Testing Image Processor', function () {
   let showFileDateTime: boolean = false;

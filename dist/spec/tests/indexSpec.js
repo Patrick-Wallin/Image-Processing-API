@@ -39,7 +39,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var server_1 = __importDefault(require("../server"));
+var server_1 = __importDefault(require("../../src/server"));
 var supertest_1 = __importDefault(require("supertest"));
 var filename_exist = 'encenadaport.jpg';
 var filename_not_exist = 'whateveritis.jpg';
@@ -103,6 +103,18 @@ describe('Testing Image Processor - API', function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, request.get('/api/images?filename=fjord.jpg&width=200&height=100&overwrite=no')];
+                case 1:
+                    response = _a.sent();
+                    expect(response.header['content-type']).toEqual('image/jpeg');
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    it('respond with successful that it created resized file WITH overwrite!', function () { return __awaiter(_this, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, request.get('/api/images?filename=fjord.jpg&width=200&height=100&overwrite=yes')];
                 case 1:
                     response = _a.sent();
                     expect(response.header['content-type']).toEqual('image/jpeg');

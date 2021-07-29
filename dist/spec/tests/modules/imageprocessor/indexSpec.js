@@ -39,12 +39,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var imageprocessor_1 = require("../../../modules/imageprocessor/imageprocessor");
+var imageprocessor_1 = require("../../../../src/modules/imageprocessor/imageprocessor");
 var fs_1 = __importDefault(require("fs"));
-var filename_exist = 'C:/projects/udacity/projects/Image-Processing-API/src/assets/full/encenadaport.jpg';
-var filename_not_existed = 'C:\\projects\\udacity\\projects\\Image-Processing-API\\src\\assets\\full\\noteventhere.jpg';
-var resize_filename_1 = 'C:/projects/udacity/projects/Image-Processing-API/src/assets/resize/encenadaport-w200-h200.jpg';
-var resize_filename_2 = 'C:\\projects\\udacity\\projects\\Image-Processing-API\\src\\assets\\resize\\noteventhere-w100-h100.jpg';
+var path_1 = __importDefault(require("path"));
+var rootDirectory = path_1.default.resolve("./");
+var filename_exist = path_1.default.join(rootDirectory, "src/assets/full", "encenadaport.jpg");
+// 'C:/projects/udacity/projects/Image-Processing-API/src/assets/full/encenadaport.jpg';
+var filename_not_existed = path_1.default.join(rootDirectory, "src/assets/full", "noteventhere.jpg");
+//'C:\\projects\\udacity\\projects\\Image-Processing-API\\src\\assets\\full\\noteventhere.jpg';
+var resize_filename_1 = path_1.default.join(rootDirectory, "src/assets/resize", "encenadaport-w200-h200.jpg");
+// 'C:/projects/udacity/projects/Image-Processing-API/src/assets/resize/encenadaport-w200-h200.jpg';
+var resize_filename_2 = path_1.default.join(rootDirectory, "src/assets/resize", "noteventhere-w100-h100.jpg");
+// 'C:\\projects\\udacity\\projects\\Image-Processing-API\\src\\assets\\resize\\noteventhere-w100-h100.jpg';
 describe('Testing Image Processor', function () {
     var _this = this;
     var showFileDateTime = false;

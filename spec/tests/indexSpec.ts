@@ -1,6 +1,5 @@
-import app from '../server';
+import app from '../../src/server';
 import supertest from 'supertest';
-
 const filename_exist = 'encenadaport.jpg';
 const filename_not_exist = 'whateveritis.jpg';
 const resize_filename = 'encenadaport.jpg';
@@ -46,4 +45,12 @@ describe('Testing Image Processor - API', function () {
     );
     expect(response.header['content-type']).toEqual('image/jpeg');
   });
+
+  it('respond with successful that it created resized file WITH overwrite!', async () => {
+    const response = await request.get(
+      '/api/images?filename=fjord.jpg&width=200&height=100&overwrite=yes'
+    );
+    expect(response.header['content-type']).toEqual('image/jpeg');
+  });
+
 });
